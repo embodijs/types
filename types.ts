@@ -57,9 +57,11 @@ export interface EmbodiElement {
 	beforeBuild?: beforeBuildFunc
 }
 
-export interface EmbodiComponent {
-	Component: typeof SvelteComponent;
+export interface EmbodiComponentProps<T = ElementData> {
+	data: T;
 }
+
+export type EmbodiComponent<T = ElementData> = typeof SvelteComponent<EmbodiComponentProps<T>>
 
 export interface EmbodiBuildFunction {
 	beforeBuild?: beforeBuildFunc
