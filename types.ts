@@ -44,6 +44,7 @@ export interface RenderHelper {
 	load(path: string): Promise<unknown>
 	createEngine(path: string): RenderHelper
 	fetch (...args: Parameters<typeof fetch>): ReturnType<typeof fetch>
+	copyAsset (path: string, folder: string): Promise<string>
 	storeAsset (content: Buffer, name: string, fileType: string): Promise<string>
 }
 
