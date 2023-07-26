@@ -51,10 +51,8 @@ export interface beforeBuildFunc <T extends ElementData = ElementData, U extends
 	(data: T, helper: RenderHelper): Promise<U>,
 }
 
-export interface EmbodiElement {
-	identifier: string;
-  	Component: typeof SvelteComponent;
-	beforeBuild?: beforeBuildFunc
+export interface beforeAllFunc {
+	(helper: RenderHelper): Promise<void>,
 }
 
 export interface EmbodiComponentProps<T = ElementData> {
@@ -65,5 +63,6 @@ export type EmbodiComponent<T = ElementData> = typeof SvelteComponent<EmbodiComp
 
 export interface EmbodiBuildFunction {
 	beforeBuild?: beforeBuildFunc
+	beforeAll?: beforeAllFunc
 }
 
